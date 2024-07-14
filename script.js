@@ -14,11 +14,14 @@ let totalDuration = startingSeconds * 1000;
 
 const clockOutline = document.getElementById('clock-progress');
 const minuteHand = document.getElementById('minute-hand');
+const startPauseButton = document.getElementById('start');
 
 const dingSound = new Audio('assets/ding.mp3');
 
 let startTime;
 let timerInterval;
+
+startPauseButton.addEventListener('click', startTimer);
 
 function startTimer() {
     startTime = Date.now();
@@ -87,5 +90,3 @@ function updateHand(remainingTime) {
     const minutesDegrees = progress * 360;
     minuteHand.style.transform = `translateX(-50%) rotate(-${minutesDegrees}deg)`;
 }
-
-startTimer();
